@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindIt USM — Lost &amp; Found</title>
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+  <header class="shell">
+    <a class="brand" href="#" aria-label="FindIt USM home">
+      <span class="brand-mark">⌕</span>
+      <span>find<span>it</span></span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#items">Browse items</a>
+      <a href="#how-it-works">How it works</a>
+      <button class="button" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      <button class="button" id="open-report">Report an item</button>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">University of Southern Mindanao</p>
+        <h1>Lost something? Let’s find it.</h1>
+        <p class="hero-copy">
+          A campus community for finding lost belongings and returning found items to their owners.
+        </p>
+
+        <form class="search-box" id="search-form">
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Try “ID card” or “library”"
+            aria-label="Search items"
+          />
+          <button class="button" type="submit">Search items</button>
+        </form>
+        <p class="hero-note">Search reported items around the USM campus.</p>
+      </div>
+    </section>
+
+    <section id="items">
+      <div class="section-heading">
+        <div>
+          <h2>Recently reported</h2>
+          <p>Items shared by the campus community</p>
+        </div>
+      </div>
+
+      <div class="filters" aria-label="Filter by category">
+        <button class="filter active" data-category="all">All items</button>
+        <button class="filter" data-category="electronics">Electronics</button>
+        <button class="filter" data-category="ids">IDs &amp; cards</button>
+        <button class="filter" data-category="accessories">Accessories</button>
+        <button class="filter" data-category="other">Other</button>
+      </div>
+
+      <div class="grid" id="item-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state">
+        <strong>No matching items found</strong>
+        Try a different search or category.
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works" aria-label="How FindIt works">
+      <article class="step">
+        <div class="step-number">01</div>
+        <h3>Search the listings</h3>
+        <p>Look through recently reported items and check where they were last seen.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">02</div>
+        <h3>Report what you found</h3>
+        <p>Share a short description and the campus location where the item was found.</p>
+      </article>
+      <article class="step">
+        <div class="step-number">03</div>
+        <h3>Help it get home</h3>
+        <p>Coordinate a safe handoff through the campus process when it is set up.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">FindIt USM · Campus lost and found</div>
+  </footer>
+
+  <div class="modal-backdrop" id="report-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <form class="modal" id="report-form">
+      <div class="modal-header">
+        <div>
+          <h2 id="modal-title">Report an item</h2>
+          <p>Add an item to this page’s demo listings.</p>
+        </div>
+        <button class="close-button" type="button" id="close-report" aria-label="Close">×</button>
+      </div>
+
+      <div class="field">
+        <label for="item-title">Item name</label>
+        <input id="item-title" name="title" maxlength="60" required placeholder="e.g. Black water bottle" />
+      </div>
+
+      <div class="field">
+        <label for="item-category">Category</label>
+        <select id="item-category" name="category" required>
+          <option value="electronics">Electronics</option>
+          <option value="ids">IDs &amp; cards</option>
+          <option value="accessories">Accessories</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="item-location">Campus location</label>
+        <input id="item-location" name="location" maxlength="60" required placeholder="e.g. Main Library" />
+      </div>
+
+      <div class="field">
+        <label for="item-description">Short description</label>
+        <textarea id="item-description" name="description" maxlength="180" placeholder="Add a helpful detail (avoid personal information)."></textarea>
+      </div>
+
+      <p class="form-note">
+        This is a front-end demo. Reports stay in this page’s memory and are not sent to a server.
+      </p>
+      <button class="button" type="submit">Add demo listing</button>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="static/js/app.js"></script>
+</body>
+</html>
