@@ -6,6 +6,7 @@
   <title>FindIt USM — Lost &amp; Found</title>
   <style>
     :root {
+      color-scheme: light;
       --green: #176b4d;
       --green-dark: #10563d;
       --mint: #e8f3ed;
@@ -14,7 +15,42 @@
       --muted: #69756e;
       --line: #e7e9e5;
       --white: #fff;
+      --surface: #fff;
+      --surface-subtle: #f2f4f1;
+      --text-soft: #59665e;
+      --text-faint: #738078;
+      --filter-active: #eef6f1;
+      --card-art-green: #eaf2ec;
+      --card-art-orange: #f6eee2;
+      --card-art-lilac: #efedf6;
+      --card-art-blue: #e9f0f4;
+      --card-art-pink: #f6ebed;
+      --card-art-yellow: #f5f1df;
       --shadow: 0 14px 38px rgba(23, 45, 32, .08);
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --green: #75d5a7;
+      --green-dark: #55bd8d;
+      --mint: #20382d;
+      --cream: #121a16;
+      --ink: #edf4ef;
+      --muted: #a8b5ad;
+      --line: #2d3a32;
+      --white: #1b2720;
+      --surface: #1b2720;
+      --surface-subtle: #27352c;
+      --text-soft: #c0ccc4;
+      --text-faint: #9aa99f;
+      --filter-active: #263d30;
+      --card-art-green: #263d30;
+      --card-art-orange: #403528;
+      --card-art-lilac: #363244;
+      --card-art-blue: #293944;
+      --card-art-pink: #402e34;
+      --card-art-yellow: #3d3a29;
+      --shadow: 0 14px 38px rgba(0, 0, 0, .22);
     }
 
     * { box-sizing: border-box; }
@@ -143,7 +179,7 @@
     .hero-copy {
       max-width: 490px;
       margin: 18px 0 27px;
-      color: #59665e;
+      color: var(--text-soft);
       font-size: 16px;
       line-height: 1.65;
     }
@@ -154,7 +190,7 @@
       padding: 7px;
       border: 1px solid #e4e9e4;
       border-radius: 15px;
-      background: white;
+      background: var(--surface);
       box-shadow: 0 8px 24px rgba(25, 60, 41, .08);
     }
 
@@ -172,7 +208,7 @@
 
     .hero-note {
       margin: 13px 0 0;
-      color: #738078;
+      color: var(--text-faint);
       font-size: 12px;
     }
 
@@ -207,8 +243,8 @@
       padding: 9px 14px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      color: #59655d;
-      background: white;
+      color: var(--text-soft);
+      background: var(--surface);
       font-size: 13px;
       font-weight: 650;
     }
@@ -216,7 +252,7 @@
     .filter:hover, .filter.active {
       border-color: var(--green);
       color: var(--green);
-      background: #eef6f1;
+      background: var(--filter-active);
     }
 
     .grid {
@@ -229,7 +265,7 @@
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: white;
+      background: var(--surface);
       transition: transform .2s, box-shadow .2s;
     }
 
@@ -243,14 +279,14 @@
       display: grid;
       place-items: center;
       position: relative;
-      background: #eaf2ec;
+      background: var(--card-art-green);
     }
 
-    .card-art.orange { background: #f6eee2; }
-    .card-art.lilac { background: #efedf6; }
-    .card-art.blue { background: #e9f0f4; }
-    .card-art.pink { background: #f6ebed; }
-    .card-art.yellow { background: #f5f1df; }
+    .card-art.orange { background: var(--card-art-orange); }
+    .card-art.lilac { background: var(--card-art-lilac); }
+    .card-art.blue { background: var(--card-art-blue); }
+    .card-art.pink { background: var(--card-art-pink); }
+    .card-art.yellow { background: var(--card-art-yellow); }
 
     .item-emoji {
       font-size: 58px;
@@ -263,8 +299,8 @@
       left: 12px;
       padding: 6px 9px;
       border-radius: 999px;
-      color: #356449;
-      background: rgba(255, 255, 255, .9);
+      color: var(--green);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
       font-size: 10px;
       font-weight: 800;
       letter-spacing: .4px;
@@ -289,8 +325,8 @@
     .category-label {
       padding: 5px 8px;
       border-radius: 7px;
-      color: #647168;
-      background: #f2f4f1;
+      color: var(--muted);
+      background: var(--surface-subtle);
       font-size: 10px;
       font-weight: 700;
       white-space: nowrap;
@@ -310,7 +346,7 @@
     .empty-state {
       display: none;
       padding: 48px 20px;
-      border: 1px dashed #ccd5ce;
+      border: 1px dashed var(--line);
       border-radius: 18px;
       color: var(--muted);
       text-align: center;
@@ -334,7 +370,7 @@
       padding: 22px;
       border: 1px solid var(--line);
       border-radius: 16px;
-      background: white;
+      background: var(--surface);
     }
 
     .step-number {
@@ -379,7 +415,7 @@
       overflow-y: auto;
       padding: 25px;
       border-radius: 20px;
-      background: white;
+      background: var(--surface);
       box-shadow: 0 24px 70px rgba(0, 0, 0, .2);
     }
 
@@ -399,8 +435,8 @@
       height: 34px;
       border: 0;
       border-radius: 10px;
-      color: #59655d;
-      background: #f2f4f1;
+      color: var(--text-soft);
+      background: var(--surface-subtle);
       font-size: 20px;
     }
 
@@ -416,10 +452,11 @@
     .field input, .field select, .field textarea {
       width: 100%;
       padding: 11px 12px;
-      border: 1px solid #dfe4df;
+      border: 1px solid var(--line);
       border-radius: 10px;
       outline-color: var(--green);
-      background: white;
+      color: var(--ink);
+      background: var(--surface);
     }
 
     .field textarea { min-height: 80px; resize: vertical; }
@@ -481,6 +518,7 @@
     <nav aria-label="Main navigation">
       <a href="#items">Browse items</a>
       <a href="#how-it-works">How it works</a>
+      <button class="button" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
       <button class="button" id="open-report">Report an item</button>
     </nav>
   </header>
@@ -598,6 +636,24 @@
   <div class="toast" id="toast" role="status"></div>
 
   <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("findit-theme");
+    const initialTheme = savedTheme === "dark" ? "dark" : "light";
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      const isDark = theme === "dark";
+      themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+    }
+
+    setTheme(initialTheme);
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      setTheme(nextTheme);
+      localStorage.setItem("findit-theme", nextTheme);
+    });
+
     // Sample listings for the UI preview. Replace these with data from your Flask backend.
     const items = [
       { title: "Wireless earbuds case", category: "electronics", location: "USM Library", emoji: "🎧", color: "lilac" },
